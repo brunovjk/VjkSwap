@@ -20,13 +20,11 @@ const style = {
   paper: {
     width: "100%",
     padding: "12px 24px",
-    borderColor: "primary.light",
     overflow: "hidden",
   },
   avatar: {
     bgcolor: "transparent",
     border: "1px solid",
-    borderColor: "primary.light",
   },
 };
 

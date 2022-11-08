@@ -6,6 +6,7 @@ import {
   MenuItem,
   Typography,
   LinearProgress,
+  Stack,
 } from "@mui/material";
 import React, { useState } from "react";
 
@@ -53,7 +54,16 @@ export function InputTokenAmount({
         </Grid>
         <Grid item xs={5}>
           {loading ? (
-            <LinearProgress color="primary" />
+            <Stack
+              direction="column"
+              justifyContent="space-evenly"
+              alignItems="stretch"
+            >
+              <Typography textAlign="center" variant="caption" color="primary">
+                Loading pools...
+              </Typography>
+              <LinearProgress color="primary" />
+            </Stack>
           ) : (
             <Select
               required
