@@ -16,7 +16,9 @@ export function ContextProvider({ children }: any) {
   const [wethAddres, setWethAddres] = useState("");
   const [tokenList, setTokenList] = useState<any[]>([]);
 
-  const provider: any = new ethers.providers.Web3Provider(ethereum);
+  const provider: any = ethereum
+    ? new ethers.providers.Web3Provider(ethereum)
+    : undefined;
 
   const checkChainId = async () => {
     checkChainIdFunction({
@@ -41,17 +43,16 @@ export function ContextProvider({ children }: any) {
     });
   };
 
-  const context: ContextInterface =
-    {
-      provider: provider,
-      currentAccount: signer,
-      chainId: chainId,
-      connectWallet: connectWallet,
-      wethAddres: wethAddres,
-      tokenList: tokenList,
-      seed: seed,
-      setSeed: setSeed,
-    } ?? null;
+  const context: ContextInterface = {
+    provider: provider,
+    currentAccount: signer,
+    chainId: chainId,
+    connectWallet: connectWallet,
+    wethAddres: wethAddres,
+    tokenList: tokenList,
+    seed: seed,
+    setSeed: setSeed,
+  };
 
   useEffect(() => {
     if (ethereum) {

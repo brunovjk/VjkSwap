@@ -17,17 +17,19 @@ export const WalletAlert = ({ open, setOpen }: any) => {
   return (
     <BasicModal open={open} setOpen={setOpen}>
       <Typography textAlign="center">
-        In order to interact with Our Application you Need a{" "}
-        <Link
-          href="https://www.makeuseof.com/best-browser-extension-crypto-wallets/"
-          target="_blank"
-          rel="noreferrer"
-          color="inherit"
-          underline="hover"
-        >
-          Browser Extension Wallet
-        </Link>{" "}
-        like:
+        To interact with our{" "}
+        <Typography component="span" color="primary.dark">
+          dApp
+        </Typography>
+        , you need an{" "}
+        <Typography component="span" color="primary.dark">
+          Account
+        </Typography>{" "}
+        and a{" "}
+        <Typography component="span" color="primary.dark">
+          Crypto Wallet
+        </Typography>{" "}
+        Browser Extension like:
       </Typography>
       <Paper variant="outlined" sx={{ m: "2rem" }}>
         <ButtonBase
