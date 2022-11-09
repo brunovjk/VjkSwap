@@ -23,12 +23,12 @@ function App() {
         component="div"
         sx={[
           style.appContainer,
-          !context.currentAccount ? style.welcome : style.app,
+          !context?.currentAccount ? style.welcome : style.app,
         ]}
       >
         <ConnectBar setTheme={setThemeSelector} />
-        {context.currentAccount ? (
-          context.chainId ? (
+        {context?.provider && context?.currentAccount ? (
+          context?.chainId ? (
             <>
               <Container maxWidth="sm" disableGutters>
                 <Paper

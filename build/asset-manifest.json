@@ -1,9 +1,11 @@
 {
   "files": {
-    "main.js": "/static/js/main.bf9dc6b9.js",
+    "main.js": "/static/js/main.2142c507.js",
+    "static/media/Metamask.png": "/static/media/Metamask.5bf1b8a1088338aa35fb.png",
+    "static/media/Coinbase.png": "/static/media/Coinbase.b07b5b363dac39096e3c.png",
     "index.html": "/index.html"
   },
   "entrypoints": [
-    "static/js/main.bf9dc6b9.js"
+    "static/js/main.2142c507.js"
   ]
 }

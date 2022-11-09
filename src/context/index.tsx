@@ -41,16 +41,17 @@ export function ContextProvider({ children }: any) {
     });
   };
 
-  const context: ContextInterface = {
-    provider: provider,
-    currentAccount: signer,
-    chainId: chainId,
-    connectWallet: connectWallet,
-    wethAddres: wethAddres,
-    tokenList: tokenList,
-    seed: seed,
-    setSeed: setSeed,
-  };
+  const context: ContextInterface =
+    {
+      provider: provider,
+      currentAccount: signer,
+      chainId: chainId,
+      connectWallet: connectWallet,
+      wethAddres: wethAddres,
+      tokenList: tokenList,
+      seed: seed,
+      setSeed: setSeed,
+    } ?? null;
 
   useEffect(() => {
     if (ethereum) {

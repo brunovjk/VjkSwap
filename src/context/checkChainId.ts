@@ -12,8 +12,7 @@ export const checkChainIdFunction = async ({
   setChainId,
 }: any) => {
   try {
-    if (!ethereum)
-      return console.log("Please install a Cryptocurrency Software Wallet");
+    if (!ethereum) return console.log("checkChainId");
 
     const chainId = await ethereum.request({ method: "eth_chainId" });
 

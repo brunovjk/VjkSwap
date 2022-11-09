@@ -4,18 +4,19 @@ export const checkIfWalletisConnectedFunction = async ({
   setSigner,
 }: any) => {
   try {
-    if (!ethereum)
-      return console.log("Please install a Cryptocurrency Software Wallet");
+    if (ethereum && provider) {
+      await provider.send("eth_accounts");
 
-    await provider.send("eth_accounts");
+      const signer: any = provider.getSigner();
+      const signerAddress = signer.provider.provider.selectedAddress;
 
-    const signer: any = provider.getSigner();
-    const signerAddress = signer.provider.provider.selectedAddress;
-
-    if (signerAddress?.length) {
-      setSigner(signer);
+      if (signerAddress?.length) {
+        setSigner(signer);
+      } else {
+        console.log("No accounts found.");
+      }
     } else {
-      console.log("No accounts found.");
+      return console.log("checkIfWalletisConnected");
     }
   } catch (error) {
     console.log(error);
