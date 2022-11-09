@@ -2,22 +2,19 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 import { lightTheme, darkTheme } from "./theme";
 
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 
 import { Container, Box, Paper, Toolbar } from "@mui/material";
 import { ConnectBar } from "./components";
-import { Home, Welcome } from "./views";
+import { Home, Welcome, IncorrectNetwork, Loading } from "./views";
 import { Context } from "./context";
 import { style } from "./stylesApp";
 
 function App() {
   const context: any = useContext(Context);
-  const [themeSelector, setThemeSelector] = useState(
-    localStorage.getItem("themeSelector") ?? false
-  );
 
   return (
-    <ThemeProvider theme={themeSelector ? darkTheme : lightTheme}>
+    <ThemeProvider theme={context?.themeSelector ? darkTheme : lightTheme}>
       <CssBaseline />
       <Box
         component="div"
@@ -26,27 +23,31 @@ function App() {
           !context?.currentAccount ? style.welcome : style.app,
         ]}
       >
-        <ConnectBar setTheme={setThemeSelector} />
-        {context?.provider && context?.currentAccount ? (
-          context?.chainId ? (
-            <>
-              <Container maxWidth="sm" disableGutters>
-                <Paper
-                  sx={[
-                    style.gridContainer,
-                    themeSelector
-                      ? style.darkThemeContainer
-                      : style.lightThemeContainer,
-                  ]}
-                  elevation={6}
-                >
-                  <Home />
-                </Paper>
-              </Container>
-              <Toolbar />
-            </>
+        <ConnectBar setTheme={context?.setThemeSelector} />
+        {context?.currentAccount ? (
+          context?.chainId === "0x1" || context?.chainId === "0x5" ? (
+            context?.loadingApp ? (
+              <Loading />
+            ) : (
+              <>
+                <Container maxWidth="sm" disableGutters>
+                  <Paper
+                    sx={[
+                      style.gridContainer,
+                      context?.themeSelector
+                        ? style.darkThemeContainer
+                        : style.lightThemeContainer,
+                    ]}
+                    elevation={6}
+                  >
+                    <Home />
+                  </Paper>
+                </Container>
+                <Toolbar />
+              </>
+            )
           ) : (
-            <Welcome /> // Incorrent network
+            <IncorrectNetwork />
           )
         ) : (
           <Box>

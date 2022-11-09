@@ -11,13 +11,18 @@ export const Context = createContext<ContextInterface | null>(null);
 
 export function ContextProvider({ children }: any) {
   const [seed, setSeed] = useState();
+  const [loadingApp, setLoadingApp] = useState(false);
   const [signer, setSigner] = useState(null);
   const [chainId, setChainId] = useState<string | null>(null);
   const [wethAddres, setWethAddres] = useState("");
   const [tokenList, setTokenList] = useState<any[]>([]);
 
+  const [themeSelector, setThemeSelector] = useState(
+    localStorage.getItem("themeSelector") === "true" ? true : false
+  );
+
   const provider: any = ethereum
-    ? new ethers.providers.Web3Provider(ethereum)
+    ? new ethers.providers.Web3Provider(ethereum, "any")
     : undefined;
 
   const checkChainId = async () => {
@@ -44,6 +49,9 @@ export function ContextProvider({ children }: any) {
   };
 
   const context: ContextInterface = {
+    themeSelector: themeSelector,
+    setThemeSelector: setThemeSelector,
+    loadingApp: loadingApp,
     provider: provider,
     currentAccount: signer,
     chainId: chainId,
@@ -57,11 +65,18 @@ export function ContextProvider({ children }: any) {
   useEffect(() => {
     if (ethereum) {
       ethereum.on("chainChanged", () => {
+        setLoadingApp(true);
         checkChainId();
-        window.location.reload();
+        setTimeout(() => {
+          setLoadingApp(false);
+        }, 500);
       });
       ethereum.on("accountsChanged", () => {
-        window.location.reload();
+        setLoadingApp(true);
+        checkIfWalletisConnected();
+        setTimeout(() => {
+          setLoadingApp(false);
+        }, 500);
       });
     }
   });

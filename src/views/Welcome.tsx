@@ -1,33 +1,14 @@
-import { Grid, Paper, Typography } from "@mui/material";
-
+import { AppCard } from "../components/_elements";
 import React from "react";
-import img from "../../assets/img01.jpg";
-
-const style = {
-  gridContainer: {
-    height: "100vh",
-  },
-  paper: {
-    padding: "64px",
-    borderRadius: "50px",
-    borderColor: "primary.main",
-  },
-};
 
 export default function Welcome() {
   return (
-    <Grid
-      container
-      direction="column"
-      justifyContent="center"
-      alignItems="center"
-      sx={style.gridContainer}
-    >
-      <Grid item>
-        <Paper sx={style.paper}>
-          <Typography>Welcome</Typography>
-        </Paper>
-      </Grid>
-    </Grid>
+    <AppCard
+      title="Connect your wallet"
+      subTitle="and Have Fun!"
+      text="ERC-20 is Ethereum Request for Comment, number 20."
+      paragraph="ERC-20 is the standard for smart contract tokens created using
+      Ethereum."
+    />
   );
 }

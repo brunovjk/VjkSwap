@@ -12,7 +12,7 @@ import {
   Typography,
   CircularProgress,
 } from "@mui/material";
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { ethers } from "ethers";
 
 import { Context } from "../context";
@@ -51,19 +51,20 @@ export default function Wrap() {
     wethAbi,
     context?.provider
   );
-
-  try {
-    contract
-      .connect(context?.currentAccount)
-      .balanceOf(context?.currentAccount.provider.provider.selectedAddress)
-      .then((res: any) => {
-        setBalance(ethers.utils.formatUnits(res, 18));
-      })
-      .catch((error: any) => {
-        console.log(error);
-      });
-  } catch (error) {
-    console.log(error);
+  function getBalance() {
+    try {
+      contract
+        .connect(context?.currentAccount)
+        .balanceOf(context?.currentAccount.provider.provider.selectedAddress)
+        .then((res: any) => {
+          setBalance(ethers.utils.formatUnits(res, 18));
+        })
+        .catch((error: any) => {
+          console.log(error);
+        });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   function handleSubmit(event: any) {
@@ -146,6 +147,10 @@ export default function Wrap() {
       setLoading(false);
     }
   }
+
+  useEffect(() => {
+    getBalance();
+  }, [contract]);
 
   return (
     <Paper component="form" onSubmit={handleSubmit} sx={style.paper}>

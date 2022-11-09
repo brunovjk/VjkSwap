@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  Paper,
-  ButtonBase,
-  Avatar,
-  Button,
-  Typography,
-  Divider,
-  Link,
-} from "@mui/material";
+import { Paper, ButtonBase, Avatar, Button, Typography } from "@mui/material";
 import { BasicModal } from "../components/_elements";
 import Metamask from "../assets/Metamask.png";
 import Coinbase from "../assets/Coinbase.png";

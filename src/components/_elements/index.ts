@@ -8,3 +8,4 @@ export { ETHBalance } from "./ETHBalance";
 export { ThemeSwitch } from "./ThemeSwitch";
 export { TokenBalance } from "./TokenBalance";
 export { TokenInteractions } from "./TokenInteractions";
+export { AppCard } from "./AppCard";

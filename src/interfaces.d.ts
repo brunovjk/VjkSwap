@@ -1,4 +1,7 @@
 interface ContextInterface {
+  themeSelector: bool;
+  setThemeSelector: any;
+  loadingApp: bool;
   provider: any;
   currentAccount: address;
   chainId: bool;
