@@ -4,7 +4,6 @@ import { Typography, Link } from "@mui/material";
 
 const style = {
   waterMarkRight: {
-    display: { xs: "none", md: "block" },
     position: "fixed",
     bottom: "5px",
     right: "5px",
@@ -13,6 +12,7 @@ const style = {
     color: "white",
   },
   waterMarkLeft: {
+    display: { xs: "none", md: "block" },
     position: "fixed",
     bottom: "5px",
     left: "5px",
