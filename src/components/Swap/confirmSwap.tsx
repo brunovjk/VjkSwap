@@ -53,7 +53,7 @@ export const ConfirmSwap = ({
             {inputTokenInfoOut.label}
           </Typography>
         </Stack>
-        {context?.chainId === "0x5" && (
+        {context?.chainId === "0x1" && (
           <Typography textAlign="center" variant="caption" color="error">
             * You are about to carry out a real transaction on the Ethereum
             Mainnet, please double check all informations in your Wallet
