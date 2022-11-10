@@ -1,5 +1,5 @@
 import React from "react";
-import { Paper, ButtonBase, Avatar, Button, Typography } from "@mui/material";
+import { Paper, ButtonBase, Avatar, Box, Typography } from "@mui/material";
 import { BasicModal } from "../components/_elements";
 import Metamask from "../assets/Metamask.png";
 import Coinbase from "../assets/Coinbase.png";
@@ -53,6 +53,12 @@ export const WalletAlert = ({ open, setOpen }: any) => {
           <Typography sx={{ width: "120px" }}>Trust Wallet</Typography>
         </ButtonBase>
       </Paper>
+      <Box sx={{ p: "2rem", pb: "0rem", with: "160px", lineHeight: 0.025 }}>
+        <Typography variant="caption">
+          * If you are using your cell phone, you will need to access our
+          website through your Crypto Wallet Browser
+        </Typography>
+      </Box>
     </BasicModal>
   );
 };

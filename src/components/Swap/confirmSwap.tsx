@@ -25,13 +25,15 @@ export const ConfirmSwap = ({
           Confirm Swap
         </Typography>
         <Typography textAlign="center" variant="body1" color="GrayText">
-          Please check your informations before swap.
+          Please check your informations
+          <br />
+          before swap.
         </Typography>
         <Stack
           direction="column"
           justifyContent="center"
-          alignItems="stretch"
-          divider={<Divider orientation="horizontal" />}
+          alignItems="center"
+          divider={<Divider variant="middle" />}
           spacing={1}
         >
           <Typography textAlign="center" variant="body1" color="GrayText">
@@ -47,10 +49,11 @@ export const ConfirmSwap = ({
             {inputTokenInfoOut.token && shortenAddress(inputTokenInfoOut.token)}
           </Typography>
           <Typography textAlign="center" variant="body1" color="GrayText">
-            Expected amount out: <br /> {inputTokenInfoOut.label}
+            Expected {inputTokenInfoOut.symbol} amount: <br />{" "}
+            {inputTokenInfoOut.label}
           </Typography>
         </Stack>
-        {context?.chainId === "0x1" && (
+        {context?.chainId === "0x5" && (
           <Typography textAlign="center" variant="caption" color="error">
             * You are about to carry out a real transaction on the Ethereum
             Mainnet, please double check all informations in your Wallet

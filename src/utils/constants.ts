@@ -1,3 +1,5 @@
+export const Router02_Address = "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D";
+
 export const vjkSwapContractAddress =
   "0xFE237fdB07C3606a88a13A27C0655aB75Ccf8DCA";
 

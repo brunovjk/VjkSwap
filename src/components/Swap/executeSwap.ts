@@ -1,5 +1,5 @@
-import { vjkSwapContractABI } from "../../utils/abis";
-import { vjkSwapContractAddress } from "../../utils/constants";
+import { Router02_Address } from "../../utils/constants";
+import { Router02Abi } from "../../utils/abis";
 import { ethers } from "ethers";
 
 export async function ExecuteSwap(
@@ -9,21 +9,25 @@ export async function ExecuteSwap(
   setDisabledControl: any,
   setAlert: any
 ) {
-  const VjkSwapContract = new ethers.Contract(
-    vjkSwapContractAddress,
-    vjkSwapContractABI,
+  const amountIn = ethers.utils
+    .parseUnits(inputTokenInfoIn.amount, inputTokenInfoIn.decimals)
+    .toHexString();
+  const amountOutMin = inputTokenInfoOut.amount
+    .div(ethers.BigNumber.from("100"))
+    .mul(ethers.BigNumber.from("95"))
+    .toHexString(); // Slippage tolerance 5% // TODO
+  const path = [inputTokenInfoIn.token, inputTokenInfoOut.token];
+  const to = context?.currentAccount.provider.provider.selectedAddress;
+  const deadline = Math.floor(Date.now() / 1000) + 60 * 20;
+
+  const Router02Contract = new ethers.Contract(
+    Router02_Address,
+    Router02Abi,
     context?.provider
   );
 
-  VjkSwapContract.connect(context?.currentAccount)
-    .swapExactInputSingle(
-      inputTokenInfoIn.token,
-      inputTokenInfoOut.token,
-      ethers.utils.parseUnits(
-        inputTokenInfoIn.amount,
-        inputTokenInfoIn.decimals
-      )
-    )
+  Router02Contract.connect(context?.currentAccount)
+    .swapExactTokensForTokens(amountIn, amountOutMin, path, to, deadline)
     .then(async (res: any) => {
       setAlert({
         severity: "info",

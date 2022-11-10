@@ -35,23 +35,6 @@ export function InputTokenAmount({
         alignItems="center"
         spacing={2}
       >
-        <Grid item xs={7}>
-          <TextField
-            required={!disabled}
-            disabled={disabled || disabledAmount}
-            type="number"
-            inputProps={{ step: ".000000000000000001", min: 0 }}
-            id="input-token-amountIn"
-            label={inputTokenInfo.label}
-            onInput={(e: any) =>
-              setInputTokenInfo({
-                ...inputTokenInfo,
-                amount: e.target.value,
-              })
-            }
-            fullWidth
-          />
-        </Grid>
         <Grid item xs={5}>
           {loading ? (
             <Stack
@@ -76,6 +59,8 @@ export function InputTokenAmount({
                 setInputTokenInfo({
                   ...inputTokenInfo,
                   token: e.target.value.address,
+                  name: e.target.value.name,
+                  symbol: e.target.value.symbol,
                   decimals: e.target.value.decimals,
                 });
               }}
@@ -90,6 +75,23 @@ export function InputTokenAmount({
               ))}
             </Select>
           )}
+        </Grid>
+        <Grid item xs={7}>
+          <TextField
+            required={!disabled}
+            disabled={disabled || disabledAmount}
+            type="number"
+            inputProps={{ step: ".000000000000000001", min: 0 }}
+            id="input-token-amountIn"
+            label={inputTokenInfo.label}
+            onInput={(e: any) =>
+              setInputTokenInfo({
+                ...inputTokenInfo,
+                amount: e.target.value,
+              })
+            }
+            fullWidth
+          />
         </Grid>
       </Grid>
     </Paper>

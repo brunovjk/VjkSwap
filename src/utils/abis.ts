@@ -1,3 +1,6 @@
+export const Router02Abi = [
+  "function swapExactTokensForTokens( uint amountIn, uint amountOutMin, address[] calldata path, address to, uint deadline ) external returns (uint[] memory amounts)",
+];
 export const UniswapV3FactoryAbi = [
   " function getPool( address tokenA, address tokenB, uint24 fee ) external view returns (address pool)",
 ];

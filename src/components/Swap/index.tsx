@@ -4,8 +4,8 @@ import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../context";
 import { InputTokenAmount, BasicAlert } from "../_elements";
 import {
-  ExecuteSwap,
   ApproveSwap,
+  ExecuteSwap,
   getPoolAddressList,
   getQuote,
 } from "./functions";
@@ -40,6 +40,8 @@ export default function Swap() {
     amount: null,
     token: null,
     tokenList: context?.tokenList || [],
+    name: "",
+    symbol: "",
     decimals: 0,
   });
   const [inputTokenInfoOut, setInputTokenInfoOut]: any = useState({
@@ -48,6 +50,8 @@ export default function Swap() {
     token: null,
     tokenList: [],
     pool: "",
+    name: "",
+    symbol: "",
     decimals: 0,
   });
 
@@ -61,10 +65,6 @@ export default function Swap() {
       getPoolAddressList({
         context,
         inputTokenInfoIn,
-        disabledControl,
-        setDisabledControl,
-        setInputTokenInfoOut,
-        inputTokenInfoOut,
       }).then((tokenList: any) => {
         setInputTokenInfoOut({
           ...inputTokenInfoOut,
@@ -121,11 +121,14 @@ export default function Swap() {
             setInputTokenInfoOut({
               ...inputTokenInfoOut,
               label: quoteFormated,
+              amount: quote,
             });
           } else {
             setInputTokenInfoOut({
               ...inputTokenInfoOut,
               label: "Amount Out",
+              amount: null,
+              fee: null,
             });
           }
         })
@@ -141,10 +144,9 @@ export default function Swap() {
     inputTokenInfoOut.decimals,
   ]);
 
-  /* Approve the swapper contract to spend tokenIn */
+  /* Approve the swapper router contract to spend tokenIn */
   async function approve(event: any) {
     event.preventDefault();
-
     try {
       if (
         inputTokenInfoIn.amount &&
@@ -195,7 +197,7 @@ export default function Swap() {
           swapLoading: true,
           tokenOutLoading: false,
         });
-        setOpen(true);
+        setOpen(true); // Open confirm swap modal
         setDisabledControl({
           inputDisabled: true,
           aproveDisabled: true,

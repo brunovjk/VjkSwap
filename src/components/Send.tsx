@@ -20,6 +20,8 @@ export default function Send() {
     amount: null,
     token: null,
     tokenList: context?.tokenList || [],
+    name: "",
+    symbol: "",
     decimals: 0,
   });
   const [sendTo, setSendTo] = useState(null);

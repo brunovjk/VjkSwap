@@ -38,12 +38,13 @@ export async function getQuote(
     IUniswapV3PoolAbi,
     context?.provider
   );
+
   const immutables = await getPoolImmutables({ poolContract });
   const quote = await getQuoteExactSingle({
     context,
     amountIn,
-    tokenOut,
     tokenIn,
+    tokenOut,
     immutables,
   });
   return quote;

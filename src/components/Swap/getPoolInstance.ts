@@ -4,7 +4,7 @@ import { Token } from "@uniswap/sdk-core";
 import { IUniswapV3PoolAbi } from "../../utils/abis";
 import { getPoolImmutables } from "./getPoolImmutables";
 
-async function getPoolState(poolContract: any) {
+async function getPoolState({ poolContract }: any) {
   const [liquidity, slot] = await Promise.all([
     poolContract.liquidity(),
     poolContract.slot0(),
@@ -38,24 +38,24 @@ export async function getPoolInstance({
   );
 
   const [immutables, state] = await Promise.all([
-    getPoolImmutables(poolContract),
-    getPoolState(poolContract),
+    getPoolImmutables({ poolContract }),
+    getPoolState({ poolContract }),
   ]);
 
   const TokenA = new Token(
     chainId,
     immutables.token0,
-    tokenIn.decimals,
-    tokenIn.symbol,
-    tokenIn.name
+    tokenIn.decimals, // TODO get those values from immutables
+    tokenIn.symbol, // TODO get those values from immutables
+    tokenIn.name // TODO get those values from immutables
   );
 
   const TokenB = new Token(
     chainId,
     immutables.token1,
-    tokenOut.decimals,
-    tokenOut.symbol,
-    tokenOut.name
+    tokenOut.decimals, // TODO get those values from immutables
+    tokenOut.symbol, // TODO get those values from immutables
+    tokenOut.name // TODO get those values from immutables
   );
 
   const pool = new Pool(
