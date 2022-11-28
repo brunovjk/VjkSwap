@@ -61,10 +61,9 @@ export async function ExecuteSwap(
       });
       setAlert({
         severity: "error",
-        message:
-          "Not able to requested transaction, please if tokens have enough pool",
+        message: `A swap of this size may have a high price impact, given the current liquidity in the pool. ${res.reason}`,
         open: true,
-        hyperLink: `https://goerli.etherscan.io/tx/${res.hash}`,
+        hyperLink: "#",
       });
     });
 }

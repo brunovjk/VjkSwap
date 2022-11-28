@@ -41,8 +41,9 @@ export const ConfirmSwap = ({
             {inputTokenInfoIn.token && shortenAddress(inputTokenInfoIn.token)}
           </Typography>
           <Typography textAlign="center" variant="body1" color="GrayText">
-            Amount to swap:{" "}
-            {inputTokenInfoIn.amount && shortenNumber(inputTokenInfoIn.amount)}
+            Amount to swap:
+            <br />
+            {inputTokenInfoIn.amount}
           </Typography>
           <Typography textAlign="center" variant="body1" color="GrayText">
             Token Out:{" "}
