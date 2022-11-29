@@ -34,7 +34,7 @@ export default function ConnectBar({ setTheme }: any) {
             sx={style.Logo}
             onClick={() => window.location.reload()}
           >
-            VjkSwap
+            VjkSwapp
           </Typography>
           <ThemeSwitch setTheme={setTheme} />
           <ConnectButton />

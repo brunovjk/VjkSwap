@@ -1,8 +1,8 @@
-# VjkSwap
+# VjkSwapp
 
 ERC-20 Playground
 
-https://vjkswap.brunovjk.com/
+https://VjkSwapp.web.app/
 
 ### 💻 dApp Utilities
 
@@ -12,14 +12,14 @@ https://vjkswap.brunovjk.com/
 - Check your history.
 - Wrap and unwrap ETH to WETH.
 
-## 📫 Contributing to VJkSwap
+## 📫 Contributing to VjkSwapp
 
-To contribute to VJkSwap, follow these steps:
+To contribute to VjkSwapp, follow these steps:
 
 1. Fork this repository.
 2. Create a branch: `git checkout -b <branch_name>`.
 3. Make your changes and commit them: `git commit -m '<message_commit>'`
-4. Push to the original branch: `git push origin VJkSwap / <local>`
+4. Push to the original branch: `git push origin VjkSwapp / <local>`
 5. Create the pull request.
 
 Alternatively, see the GitHub documentation at [how to create a pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
@@ -28,4 +28,4 @@ Alternatively, see the GitHub documentation at [how to create a pull request](ht
 
 This project is under license. See the [LICENSE](LICENSE.md) file for more details.
 
-[⬆ Back to top](#VJkSwap)<br>
+[⬆ Back to top](#VjkSwapp)<br>

@@ -32,7 +32,7 @@ export function AppCard({ title, subTitle, text, paragraph }: any) {
               variant="h3"
               color="primary"
             >
-              VjkSwap
+              VjkSwapp
             </Typography>
             <Typography
               variant="overline"
