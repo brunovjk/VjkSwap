@@ -12,6 +12,14 @@ https://VjkSwapp.web.app/
 - Check your history.
 - Wrap and unwrap ETH to WETH.
 
+### Ajustes e melhorias
+
+The project is still under development and the next updates will focus on the following tasks:
+
+- [x] Swap
+- [ ] Stake
+- [ ] Exchange
+
 ## 📫 Contributing to VjkSwapp
 
 To contribute to VjkSwapp, follow these steps:
