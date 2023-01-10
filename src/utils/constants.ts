@@ -28,6 +28,13 @@ export const Weth_Arbitrum_Address =
 
 export const tokenList_Mainnet: any[] = [
   {
+    name: "Wrapped ETH",
+    symbol: "WETH",
+    decimals: 18,
+    address: "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    chainId: "1",
+  },
+  {
     name: "Uniswap",
     symbol: "UNI",
     decimals: 18,
@@ -94,6 +101,13 @@ export const tokenList_Mainnet: any[] = [
 
 export const tokenList_Goerli: any[] = [
   {
+    name: "Wrapped ETH",
+    symbol: "WETH",
+    decimals: 18,
+    address: "0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6",
+    chainId: "5",
+  },
+  {
     name: "Uniswap",
     symbol: "UNI",
     decimals: 18,
@@ -152,6 +166,13 @@ export const tokenList_Goerli: any[] = [
 ];
 
 export const tokenList_Polygon: any[] = [
+  {
+    name: "Wrapped ETH",
+    symbol: "WETH",
+    decimals: 18,
+    address: "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+    chainId: "137",
+  },
   {
     name: "Uniswap",
     symbol: "UNI",
@@ -212,6 +233,13 @@ export const tokenList_Polygon: any[] = [
 
 export const tokenList_Mumbai: any[] = [
   {
+    name: "Wrapped ETH",
+    symbol: "WETH",
+    decimals: 18,
+    address: "0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889",
+    chainId: "80001",
+  },
+  {
     name: "Uniswap",
     symbol: "UNI",
     decimals: 18,
@@ -256,6 +284,13 @@ export const tokenList_Mumbai: any[] = [
 ];
 
 export const tokenList_Optimism: any[] = [
+  {
+    name: "Wrapped ETH",
+    symbol: "WETH",
+    decimals: 18,
+    address: "0x4200000000000000000000000000000000000006",
+    chainId: "10",
+  },
   {
     name: "Uniswap",
     symbol: "UNI",
@@ -315,6 +350,13 @@ export const tokenList_Optimism: any[] = [
 ];
 
 export const tokenList_Arbitrum: any[] = [
+  {
+    name: "Wrapped ETH",
+    symbol: "WETH",
+    decimals: 18,
+    address: "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+    chainId: "42161",
+  },
   {
     name: "Uniswap",
     symbol: "UNI",
