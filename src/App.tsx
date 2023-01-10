@@ -25,7 +25,12 @@ function App() {
       >
         <ConnectBar setTheme={context?.setThemeSelector} />
         {context?.currentAccount ? (
-          context?.chainId === "0x1" || context?.chainId === "0x5" ? (
+          context?.chainId === 1 ||
+          context?.chainId === 5 ||
+          context?.chainId === 137 ||
+          context?.chainId === 80001 ||
+          context?.chainId === 10 ||
+          context?.chainId === 42161 ? (
             context?.loadingApp ? (
               <Loading />
             ) : (

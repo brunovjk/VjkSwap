@@ -24,7 +24,8 @@ export default function IncorrectNetworkPopup() {
             id="modal-modal-description"
             sx={{ mt: 2 }}
           >
-            Please, switch to Ethereum Mainnet or Görli Testnet
+            Please, switch to Mainnet, Polygon, Optimism, Arbitrum, Goerli or
+            Mumbai.
           </Typography>
         </Grid>
       </Grid>
